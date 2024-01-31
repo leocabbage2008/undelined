@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+/* removes margin from pre which is the code block */
+pre {
+  margin: 0;
+}
+/* sublt shadow */
+#info {
+  color: lime;
+  background-color: black;
+  padding: 5px;
+  text-shadow: 0.5px 0.5px green;
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  padding: 10px;
+  border: white double;
+}
+#banner {
+  background: url('../assets/sunset.jpg');
+  background-size: cover;
+  background-position: 0 90%;
+  /* background-attachment: fixed;  */
+  position: relative;
+  padding: 50px 0px;
+}
+#banner-pic {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 0 90%;
+}
+#title {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  right: 0;
+  font-size: 80px;
+  margin-right: 20px;
+}
+/*
++---------------------+
+|      attention      |
++---------------------+
+| ***************     |
+| end of banner stuff |
+| ***************     |
++---------------------+
+*/
+
+#body {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  width: 100%;
+}
+#body .sidebar-left,
+#body .sidebar-right {
+  background: green;
+}
+.sidebar-right {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.sidebar-right > div {
+  width: 100%;
+  border: black double;
+}
