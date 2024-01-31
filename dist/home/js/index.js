@@ -18,15 +18,15 @@ function syntaxHighlight(json) {
     }
   );
 }
-(async () => {
+const info = async () => {
   const response = await fetch(
     'https://weirdscifi.ratiosemper.com/neocities.php?sitename=undelined'
   );
-  console.log(response)
-  return response.json();
-})().then((json) => {
-  console.log(json);
+  return response.json()
+}
+info().then((response) => {
+  console.log(response);
   document.getElementById('info').innerHTML = syntaxHighlight(
-    JSON.stringify(json.info, undefined, 4)
+    JSON.stringify(response.info, undefined, 4)
   );
 });
