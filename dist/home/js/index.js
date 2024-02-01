@@ -20,7 +20,7 @@ function syntaxHighlight(json) {
 }
 const info = async () => {
   const response = await fetch(
-    'https://neocities.org/api/info?sitename=undelined'
+    'https://weirdscifi.ratiosemper.com/neocities.php?sitename=undelined'
   );
   return response.json()
 }
