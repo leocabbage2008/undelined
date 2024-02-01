@@ -26,7 +26,7 @@ const info = async () => {
 }
 info().then((response) => {
   console.log(response);
-  document.getElementById('info').innerHTML = syntaxHighlight(
-    JSON.stringify(response.info, undefined, 4)
-  );
+  // document.getElementById('info').innerHTML = syntaxHighlight(
+  //   JSON.stringify(response.info, undefined, 4)
+  // );
 });
