@@ -20,13 +20,13 @@ function syntaxHighlight(json) {
 }
 const info = async () => {
   const response = await fetch(
-    'https://weirdscifi.ratiosemper.com/neocities.php?sitename=undelined'
+    'https://weirdscifi.ratiosemper.com/neocities.php?sitename=undelined', { cache: "force-cache" }
   );
   return response.json()
 }
 info().then((response) => {
-  console.log(response);
-  // document.getElementById('info').innerHTML = syntaxHighlight(
-  //   JSON.stringify(response.info, undefined, 4)
-  // );
+  { cache: "force-cache" }
+  document.getElementById('info').innerHTML = syntaxHighlight(
+    JSON.stringify(response.info, undefined, 4)
+  );
 });
