@@ -1,3 +1,4 @@
+import "../css/index.css"
 function syntaxHighlight(json) {
   // json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return json.replace(
