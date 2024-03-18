@@ -1,0 +1,20 @@
+{
+  "name": "blogtemplate",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./js/archiveit.js && webpack --mode=production",
+    "serve": "npm run build && http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "http-server": "^14.1.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.3"
+  }
+}

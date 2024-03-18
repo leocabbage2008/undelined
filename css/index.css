@@ -18,12 +18,14 @@ a {
 pre {
   margin: 0;
 }
-/* sublt shadow */
+#info span {
+  font-weight: 600;
+}
 #info {
-  color: lime;
-  background-color: black;
+  color: #ffd6ff;
+  font-weight: 600;
+  background-color: rgb(164 113 211 / 90%);
   padding: 5px;
-  text-shadow: 0.5px 0.5px green;
   position: relative;
   width: fit-content;
   margin: auto;
