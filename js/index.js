@@ -3,29 +3,27 @@ function syntaxHighlight(json) {
   return json.replace(
     /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
     function (match) {
-      let cls = 'darkorange';
+      let cls = '#BDE0FE;font-size:120%;';
       if (/^"/.test(match)) {
         if (/:$/.test(match)) {
-          cls = 'red';
+          cls = 'pink';
         } else {
-          cls = 'green';
+          cls = 'lightblue';
         }
       } else if (/null/.test(match)) {
-        cls = 'magenta';
+        cls = '#56CFE1';
       }
-      cls = 'lime';
       return '<span style="color:' + cls + '">' + match + '</span>';
     }
   );
 }
+
 const info = async () => {
-  const response = await fetch(
-    'https://weirdscifi.ratiosemper.com/neocities.php?sitename=undelined', { cache: "force-cache" }
-  );
-  return response.json()
+  console.log(process.env.DATA);
+  return process.env.DATA
 }
+
 info().then((response) => {
-  { cache: "force-cache" }
   document.getElementById('info').innerHTML = syntaxHighlight(
     JSON.stringify(response.info, undefined, 4)
   );
