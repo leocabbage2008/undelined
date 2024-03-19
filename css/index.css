@@ -96,37 +96,38 @@ pre {
 .post-title {
   display: inline-block;
 }
-@keyframes glow {
+.post-title .hr {
+  height: 3px;
+  width: 200px;
+  background: #ffd6ff;
+  /* overflow: hidden; */
+}
+@keyframes animatedBackground {
   from {
-    transform: translateX(-100%);
+    background-position: 0;
   }
   to {
-    transform: translateX(50%);
+    background-position: 200px;
   }
 }
-.post-title .hr {
-  height: 10px;
-  background: white;
-  overflow: hidden;
-}
 .post-title .hr .glow {
-  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ff53ff);
-  background-size: 250px 10px;
-  background-repeat: space;
-  /* width: 10%; */
-  width: 500px;
-  height: 10px;
-  animation: glow 3s linear infinite;
+  width: 200px;
+  height: 3px;
+  position: relative;
+  background-size: 100px;
+  background-position: 0 0;
+  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
+  animation: animatedBackground 2s linear infinite;
 }
 
-.test {
-  height: 100px;
-  width: 100px;
+.colorbar {
+  position: absolute;
+  left: 10px;
+  height: 100%;
+  width: 50px;
   background: linear-gradient(
-    0.25turn,
-    rgba(0, 0, 0, 0.1),
-    #ff53ff 55%,
-    rgba(0, 0, 0, 0.1)
+    0.5turn,
+    rgba(182, 134, 185, 1),
+    rgba(51, 1, 37, 1)
   );
-  width: 10%;
 }
