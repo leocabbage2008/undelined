@@ -75,11 +75,6 @@ pre {
   font-size: 24px;
   color: white;
 }
-#body .sidebar-left,
-#body .sidebar-right {
-  /* background: purple; */
-  /* border: white double; */
-}
 .sidebar-right {
   display: flex;
   flex-direction: column;
@@ -87,5 +82,51 @@ pre {
 }
 .sidebar-right > div {
   width: 100%;
-  /* border: black double; */
+}
+
+.content {
+  color: purple;
+  font-size: xx-large;
+}
+
+.content h1 {
+  color: #ffd6ff;
+}
+
+.post-title {
+  display: inline-block;
+}
+@keyframes glow {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+.post-title .hr {
+  height: 10px;
+  background: white;
+  overflow: hidden;
+}
+.post-title .hr .glow {
+  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ff53ff);
+  background-size: 250px 10px;
+  background-repeat: space;
+  /* width: 10%; */
+  width: 500px;
+  height: 10px;
+  animation: glow 3s linear infinite;
+}
+
+.test {
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(
+    0.25turn,
+    rgba(0, 0, 0, 0.1),
+    #ff53ff 55%,
+    rgba(0, 0, 0, 0.1)
+  );
+  width: 10%;
 }
