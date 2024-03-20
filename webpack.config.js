@@ -9,7 +9,7 @@ const d = dotenv.config({
 });
 
 export default {
-  entry: path.resolve(__dirname, '/js/index.js'),
+  entry: [path.resolve(__dirname, '/js/index.js'), path.resolve(__dirname, '/js/mouse.js')],
   output: {
     path: path.join(__dirname, 'dist', 'home'),
     filename: 'bundle.js',
