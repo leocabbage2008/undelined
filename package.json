@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node ./js/archiveit.js && webpack --mode=production",
-    "serve": "npm run build && http-server"
+    "watch": "watch 'npm run build' ."
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "file-loader": "^6.2.0",
     "http-server": "^14.1.1",
     "style-loader": "^3.3.4",
+    "watch": "^1.0.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.3"
