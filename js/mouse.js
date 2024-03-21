@@ -1,16 +1,16 @@
-const trail = []
+let trail = []
+const SIZE = 30
 const newParticle = (e) => {
-  const particle = document.createElement("div")
-  particle.classList.add("particle")
-  particle.style.left = e.clientX
-  particle.style.top = e.clientY
-  document.body.appendChild(particle)
+  const particle = document.createElement("div");
+  particle.style.left = e.pageX + "px";
+  particle.style.top = e.pageY + "px";
+  particle.classList.add("particle", "active");
   return particle
 }
 document.addEventListener('mousemove', (e) => {
-  if (trail.length == 10) {
-    trail.pop()
-  }
+  trail = Array.from(document.getElementsByClassName("particle"))
   trail.unshift(newParticle(e))
-
+  for (const i of trail.slice(SIZE)) document.body.removeChild(i)
+  trail = trail.slice(0, SIZE)
+  for (const i of trail) document.body.appendChild(i)
 }, false)
