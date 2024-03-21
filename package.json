@@ -5,8 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node ./js/archiveit.js && webpack --mode=production",
-    "watch": "watch 'npm run build' ."
+    "build": "node ./js/archiveit.js && webpack --mode=production"
   },
   "author": "",
   "license": "ISC",
