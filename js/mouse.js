@@ -9,18 +9,16 @@ const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
 }
 
 setInterval(() => {
-  if (trail.length > 0) {
-    const currentTime = Date.now();
-    while (trail.length > 0 && currentTime - trail[trail.length - 1].timestamp > 300) {
-      trail.pop();
-    }
-    updateSpline();
+  const currentTime = Date.now();
+  while (trail.length > 0 && currentTime - trail[trail.length - 1].timestamp > 300) {
+    trail.pop();
   }
+  updateSpline();
 }, 1);
 
 document.addEventListener('mousemove', (e) => {
   // Add new point to the beginning at current mouse position with timestamp
-  trail.unshift({ point: [e.pageX, e.pageY], timestamp: Date.now() });
+  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
   updateSpline();
 }, false);
 
@@ -29,7 +27,7 @@ function updateSpline() {
   const splinePoints = [];
   if (trail.length >= 4) {
     for (let i = 1; i < trail.length - 2; i++) {
-      for (let t = 0; t <= 1; t += 0.05) {
+      for (let t = 0; t <= 1; t += .1) {
         const Q = centripetalCatmullRomSpline(
           trail[i - 1].point,
           trail[i].point,
@@ -41,14 +39,5 @@ function updateSpline() {
       }
     }
   }
-  let splinePath = document.getElementById("splinePath");
-  if (!splinePath) {
-    splinePath = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
-    splinePath.setAttribute("id", "splinePath");
-    splinePath.setAttribute("fill", "none");
-    splinePath.setAttribute("stroke", "blue");
-    splinePath.setAttribute("stroke-width", "2");
-    document.getElementById("canvas").appendChild(splinePath);
-  }
-  splinePath.setAttribute("points", splinePoints.join(' '));
+  document.getElementById("spline").setAttribute("points", splinePoints.join(' '));
 }
