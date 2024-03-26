@@ -1,4 +1,8 @@
 let trail = [];
+let inWindow = false;
+
+document.addEventListener("mouseleave", () => { inWindow = false })
+document.addEventListener("mouseenter", () => { inWindow = true })
 
 const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
   const t2 = t * t;
@@ -9,17 +13,22 @@ const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
 }
 
 setInterval(() => {
-  const currentTime = Date.now();
-  while (trail.length > 0 && currentTime - trail[trail.length - 1].timestamp > 300) {
-    trail.pop();
+  if (trail.length > 0) {
+    const currentTime = Date.now();
+    while (trail.length > 0 && currentTime - trail[trail.length - 1].timestamp > 300) {
+      trail.pop();
+    }
+    console.log("Trigger")
+    updateSpline();
   }
-  updateSpline();
 }, 1);
 
 document.addEventListener('mousemove', (e) => {
   // Add new point to the beginning at current mouse position with timestamp
-  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
-  updateSpline();
+  if (inWindow) {
+    trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+    updateSpline();
+  }
 }, false);
 
 function updateSpline() {
