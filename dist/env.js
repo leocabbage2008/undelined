@@ -1,0 +1,1 @@
+(()=>{"use strict";document.getElementById("env").innerHTML=JSON.stringify({result:"success",info:{sitename:"undelined",views:1185,hits:2654,created_at:"Sun, 28 Jan 2024 20:58:03 -0000",last_updated:"Tue, 02 Apr 2024 02:34:40 -0000",domain:null,tags:["blog"],timeAccessed:"2024-04-02T02:54:16.342Z"}})})();
