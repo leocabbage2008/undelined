@@ -1,1 +1,1 @@
-document.getElementById("env").innerHTML = JSON.stringify(process.env.DATA);
+document.getElementById("env").innerHTML = JSON.stringify(process.env);
