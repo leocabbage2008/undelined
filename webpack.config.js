@@ -9,7 +9,12 @@ const d = dotenv.config({
 });
 
 export default {
-  entry: [path.resolve(__dirname, '/js/index.js'), path.resolve(__dirname, '/js/mouse.js')],
+  entry: [
+    path.resolve(__dirname, '/js/info.js'),
+    path.resolve(__dirname, '/js/mouse.js'),
+    path.resolve(__dirname, '/js/pagination.js'),
+    path.resolve(__dirname, '/js/index.js'),
+  ],
   output: {
     path: path.join(__dirname, 'dist', 'home'),
     filename: 'bundle.js',
@@ -20,7 +25,8 @@ export default {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
-      }, {
+      },
+      {
         test: /\.(jpg|png|svg|gif)$/,
         type: 'asset/resource',
       },
@@ -30,5 +36,5 @@ export default {
     new webpack.DefinePlugin({
       'process.env': d.parsed,
     }),
-  ]
+  ],
 };

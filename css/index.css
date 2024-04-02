@@ -118,7 +118,7 @@ pre {
     background-position: 200px;
   }
 }
-.post-title .hr .glow {
+.hr .glow {
   width: 200px;
   height: 3px;
   position: relative;
@@ -126,6 +126,7 @@ pre {
   background-position: 0 0;
   background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
   animation: animatedBackground 2s linear infinite;
+  margin-bottom: 20px;
 }
 
 .colorbar {
@@ -162,4 +163,8 @@ pre {
 
 #canvas * {
   pointer-events: none;
+}
+
+.post {
+  visibility: hidden;
 }
