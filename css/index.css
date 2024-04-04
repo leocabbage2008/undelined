@@ -132,12 +132,8 @@ pre {
 .hr .glow {
   width: 200px;
   height: 3px;
-  position: relative;
-  background-size: 100px;
-  background-position: 0 0;
-  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
-  animation: animatedBackground 2s linear infinite;
-  margin-bottom: 20px;
+  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffffff);
+  animation: anime 2s linear infinite;
 }
 /* ------------ */
 
@@ -189,7 +185,7 @@ pre {
   border: thick double white;
 }
 
-.sidebar-left > :nth-child(2) {
+.sidebar-left > :nth-child(3) {
   font-size: 20px;
 }
 
