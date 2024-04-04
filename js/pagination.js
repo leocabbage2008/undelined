@@ -1,10 +1,8 @@
 const page = new URLSearchParams(window.location.search).get('page') || 0;
 // const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
-const numbers = [1, 2, 3, 3];
+const numbers = [3, 0];
 let start = numbers.slice(0, page).reduce((a, b) => a + b, 0);
-console.log(page);
-for (let i = start; i < start + numbers[page]; i++) {
+for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
   posts[i].style.display = 'block';
-  console.log(i);
 }

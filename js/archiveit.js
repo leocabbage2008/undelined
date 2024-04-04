@@ -1,3 +1,4 @@
+import { log } from 'console';
 import fs from 'fs';
 
 const sync = (data) => {
@@ -9,7 +10,11 @@ const info = async () => {
   );
   return response.json();
 };
-await info().then((result) => {
-  result['info']['timeAccessed'] = new Date();
-  sync(JSON.stringify(result));
-});
+try {
+  await info().then((result) => {
+    result['info']['timeAccessed'] = new Date();
+    sync(JSON.stringify(result));
+  });
+} catch {
+  console.log("no connection");
+}

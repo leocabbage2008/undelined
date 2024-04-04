@@ -1,4 +1,13 @@
 import '../css/index.css';
+const lowl = () => {
+  console.log(window.innerWidth, window.innerHeight);
+  if (window.innerWidth < 1000 || window.innerHeight < 900) {
+    window.location.assign('../lowl.html');
+  }
+}
+window.onresize = () => {
+  lowl();
+}
 window.mobileCheck = function () {
   let check = false;
   (function (a) {
@@ -19,4 +28,5 @@ window.onload = () => {
   if (window.mobileCheck()) {
     window.location.href = 'https://sorry_man_mobile_users_not_allowed.org';
   }
+  lowl();
 };

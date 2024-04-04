@@ -35,7 +35,6 @@ setInterval(() => {
     ) {
       trail.pop();
     }
-    // console.log("Trigger")
     updateSpline();
   }
 }, 1);
@@ -59,14 +58,16 @@ function updateSpline() {
   const splinePoints = [];
   if (trail.length >= 4) {
     for (let i = 1; i < trail.length - 2; i++) {
-      const Q = centripetalCatmullRomSpline(
-        trail[i - 1].point,
-        trail[i].point,
-        trail[i + 1].point,
-        trail[i + 2].point,
-        1
-      );
-      splinePoints.push(Q[0], Q[1]);
+      for (let t = 0; t < 1; t += .5) {
+        const Q = centripetalCatmullRomSpline(
+          trail[i - 1].point,
+          trail[i].point,
+          trail[i + 1].point,
+          trail[i + 2].point,
+          t
+        );
+        splinePoints.push(Q[0], Q[1]);
+      }
     }
   }
   document
