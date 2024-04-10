@@ -103,6 +103,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
     rgba(51, 1, 37, 1)
   );
 }
+/* ========= */
 
 .post {
   display: none;
@@ -112,11 +113,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
 .post .title {
   font-size: 24px;
   color: #ffd6ff;
-}
-
-.edits li {
-  list-style: circle;
-  list-style-position: inside;
 }
 
 .person {
@@ -138,6 +134,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
 
 .person {
   padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#pagination-nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#current-page {
+  color: white;
 }
 `, ""]);
 // Exports
@@ -751,8 +763,8 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  console.log({"result":"success","info":{"sitename":"undelined","views":1316,"hits":2799,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 08 Apr 2024 00:13:16 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T18:59:33.507Z"}});
-  return {"result":"success","info":{"sitename":"undelined","views":1316,"hits":2799,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 08 Apr 2024 00:13:16 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T18:59:33.507Z"}};
+  console.log({"result":"success","info":{"sitename":"undelined","views":1319,"hits":2802,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:00:09 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T19:28:00.516Z"}});
+  return {"result":"success","info":{"sitename":"undelined","views":1319,"hits":2802,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:00:09 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T19:28:00.516Z"}};
 };
 
 info().then((response) => {
@@ -847,10 +859,17 @@ function updateSpline() {
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-const page = new URLSearchParams(window.location.search).get('page') || 0;
+const page = Number.parseInt(new URLSearchParams(window.location.search).get('page') || 0);
 // const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
-const numbers = [3, 0];
+const numbers = [3, 1];
+document.getElementById("current-page").innerText = page + 1;
+if (page != 0) {
+  document.getElementById("newer").href = `?page=${Math.max(0, page - 1)}`;
+}
+if (page != numbers.length) {
+  document.getElementById("older").href = `?page=${Math.min(numbers.length, page + 1)}`;
+}
 let start = numbers.slice(0, page).reduce((a, b) => a + b, 0);
 for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
   posts[i].style.display = 'block';

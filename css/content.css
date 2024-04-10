@@ -79,6 +79,7 @@
     rgba(51, 1, 37, 1)
   );
 }
+/* ========= */
 
 .post {
   display: none;
@@ -88,11 +89,6 @@
 .post .title {
   font-size: 24px;
   color: #ffd6ff;
-}
-
-.edits li {
-  list-style: circle;
-  list-style-position: inside;
 }
 
 .person {
@@ -114,4 +110,20 @@
 
 .person {
   padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#pagination-nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#current-page {
+  color: white;
 }
