@@ -1,1 +1,0 @@
-(()=>{"use strict";document.getElementById("env").innerHTML=JSON.stringify({DATA:{result:"success",info:{sitename:"undelined",views:1278,hits:2758,created_at:"Sun, 28 Jan 2024 20:58:03 -0000",last_updated:"Sun, 07 Apr 2024 02:55:09 -0000",domain:null,tags:["blog","retro"],timeAccessed:"2024-04-08T00:12:51.267Z"}}})})();

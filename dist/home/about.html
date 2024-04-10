@@ -6,23 +6,26 @@
     <title>about me</title>
   </head>
   <body>
+    <svg id="canvas">
+      <polyline
+        id="spline"
+        stroke="white"
+        stroke-width="8"
+        fill="rgba(200, 166, 237,.7)"
+      ></polyline>
+      <circle id="circle" r="3" stroke="pink" fill="pink"></circle>
+    </svg>
     <div id="banner">
       <pre id="info"></pre>
       <h1 id="title">about me</h1>
     </div>
-    <div id="body">
+    <div id="main">
       <div class="content">
-        <h1>
+        <h1 style="color: blueviolet">
           This is my page! I'm 16, going by they/them online. I like coding!
-          Find this websites source code
-          <a
-            style="font-size: inherit; color: blueviolet"
-            href="https://github.com/leocabbage2008/undelined/tree/master"
-            >here</a
-          >
         </h1>
       </div>
     </div>
-    <script src="bundle.js"></script>
+    <script src="../js/bundle.js"></script>
   </body>
 </html>

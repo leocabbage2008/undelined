@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- <script src="../js/index.js" type="module"></script> -->
-    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
-    <!-- <link rel="stylesheet" href="../../css/index.css" /> -->
     <title>undelined</title>
+    <style>
+      #canvas {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+      }
+
+      #canvas * {
+        pointer-events: none;
+      }
+      .post-title .hr {
+        height: 3px;
+        width: 200px;
+        background: #ffd6ff;
+      }
+
+      @keyframes anime {
+        from {
+          background-position: 0;
+        }
+        to {
+          background-position: 200px;
+        }
+      }
+
+      @keyframes big-anime {
+        from {
+          background-position: 0;
+        }
+        to {
+          background-position: 400px;
+        }
+      }
+      .big-hr .glow {
+        text-align: center;
+        width: 400px;
+        height: 5px;
+        background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
+        margin: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: big-anime 4s linear infinite;
+      }
+      .hr .glow {
+        width: 200px;
+        height: 3px;
+        background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffffff);
+        animation: anime 2s linear infinite;
+      }
+    </style>
   </head>
   <body>
     <svg id="canvas">
@@ -58,6 +108,15 @@
       </ul>
       <div class="content">
         <div class="pagination">
+          <div class="post" id="2">
+            <div class="title">
+              Wed Apr 10 2024 14:57:56 GMT-0400 (Eastern Daylight Time)
+            </div>
+            <div class="post-content">
+              lol i wasn't sleeping in 40 F weather. still wish i could've seen
+              the eclipse though, it was cloudy here.
+            </div>
+          </div>
           <div class="post" id="1">
             <div class="title">
               TEMPORARY STORAGE: Fri Apr 05 2024 20:44:55 GMT-0400 (Eastern
@@ -71,7 +130,10 @@
               week.
             </div>
           </div>
-          <div class="post" id="1">
+          <div class="big-hr">
+            <div class="glow"></div>
+          </div>
+          <div class="post" id="2">
             <div class="title">
               TEMPORARY STORAGE: Wed Apr 03 2024 20:37:32 GMT-0400 (Eastern
               Daylight Time)
@@ -87,7 +149,7 @@
           <div class="big-hr">
             <div class="glow"></div>
           </div>
-          <div class="post" id="2">
+          <div class="post" id="3">
             <div class="title">
               TEMPORARY STORAGE: Tue Apr 02 2024 22:25:50 GMT-0400 (Eastern
               Daylight Time)
@@ -218,6 +280,6 @@
         </div>
       </ul>
     </div>
-    <script src="bundle.js"></script>
+    <script src="../js/bundle.js"></script>
   </body>
 </html>
