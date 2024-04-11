@@ -23,7 +23,6 @@ const entry = {
   'replacer.js': path.resolve(__dirname, 'js/replacer.js'),
 };
 for (let i of Object.keys(entry)) {
-  // console.log(i+"hi")
   delete Object.assign(entry, { ['js/' + i]: entry[i] })[i];
 }
 export default {

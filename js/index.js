@@ -1,8 +1,7 @@
 import '../css/index.css';
 import "../css/content.css";
 const lowl = () => {
-  console.log(window.innerWidth, window.innerHeight);
-  if (window.innerWidth < 1000 || window.innerHeight < 900) {
+  if (window.innerWidth < 900 || window.innerHeight < 900) {
     window.location.assign('../lowl.html');
   }
 }

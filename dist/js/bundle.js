@@ -136,16 +136,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
   padding: 10px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 #pagination-nav {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+#pagination-nav a {
+  text-decoration: none;
 }
 
 #current-page {
@@ -199,8 +197,8 @@ body {
 }
 a {
   color: rgb(220, 20, 60) !important;
-
   text-decoration: inherit;
+  cursor: none;
 }
 a:hover {
   text-decoration: underline;
@@ -743,7 +741,6 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
 function syntaxHighlight(json) {
-  // json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return json.replace(
     /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
     function (match) {
@@ -763,8 +760,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  console.log({"result":"success","info":{"sitename":"undelined","views":1319,"hits":2802,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:00:09 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T19:28:00.516Z"}});
-  return {"result":"success","info":{"sitename":"undelined","views":1319,"hits":2802,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:00:09 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-10T19:28:00.516Z"}};
+  return {"result":"success","info":{"sitename":"undelined","views":1322,"hits":2805,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:28:34 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-11T01:14:27.033Z"}};
 };
 
 info().then((response) => {
@@ -852,7 +848,6 @@ function updateSpline() {
   document
     .getElementById('spline')
     .setAttribute('points', splinePoints.join(' '));
-  // console.log(trail[trail.length - 1].point)
 }
 
 })();
@@ -867,13 +862,22 @@ document.getElementById("current-page").innerText = page + 1;
 if (page != 0) {
   document.getElementById("newer").href = `?page=${Math.max(0, page - 1)}`;
 }
-if (page != numbers.length) {
+if (page != numbers.length - 1) {
   document.getElementById("older").href = `?page=${Math.min(numbers.length, page + 1)}`;
 }
 let start = numbers.slice(0, page).reduce((a, b) => a + b, 0);
 for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
   posts[i].style.display = 'block';
 }
+const big_hr = document.createElement('div');
+big_hr.className = 'big-hr';
+const glow = document.createElement('div');
+glow.className = 'glow';
+big_hr.appendChild(glow);
+for (let i = start; i < Math.min(start + numbers[page], posts.length) - 1; i++) {
+  posts[i].after(big_hr.cloneNode(true));
+}
+
 
 })();
 
@@ -964,8 +968,7 @@ var content_update = injectStylesIntoStyleTag_default()(content/* default */.A, 
 
 
 const lowl = () => {
-  console.log(window.innerWidth, window.innerHeight);
-  if (window.innerWidth < 1000 || window.innerHeight < 900) {
+  if (window.innerWidth < 900 || window.innerHeight < 900) {
     window.location.assign('../lowl.html');
   }
 }

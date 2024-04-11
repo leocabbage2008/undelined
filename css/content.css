@@ -49,9 +49,6 @@
   border: thick double white;
   padding: 10px;
 }
-.sidebar-left > :nth-child(3) {
-  font-size: 20px;
-}
 
 .sidebar-right {
   display: flex;
@@ -112,16 +109,14 @@
   padding: 10px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 #pagination-nav {
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+#pagination-nav a {
+  text-decoration: none;
 }
 
 #current-page {

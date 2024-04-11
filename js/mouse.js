@@ -73,5 +73,4 @@ function updateSpline() {
   document
     .getElementById('spline')
     .setAttribute('points', splinePoints.join(' '));
-  // console.log(trail[trail.length - 1].point)
 }
