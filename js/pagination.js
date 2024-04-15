@@ -1,7 +1,7 @@
 const page = Number.parseInt(new URLSearchParams(window.location.search).get('page') || 0);
 // const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
-const numbers = [3, 1];
+const numbers = [3, 2];
 document.getElementById("current-page").innerText = page + 1;
 if (page != 0) {
   document.getElementById("newer").href = `?page=${Math.max(0, page - 1)}`;

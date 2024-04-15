@@ -73,9 +73,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
   border: thick double white;
   padding: 10px;
 }
-.sidebar-left > :nth-child(3) {
-  font-size: 20px;
-}
 
 .sidebar-right {
   display: flex;
@@ -760,7 +757,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  return {"result":"success","info":{"sitename":"undelined","views":1322,"hits":2805,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Apr 2024 19:28:34 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-11T01:14:27.033Z"}};
+  return {"result":"success","info":{"sitename":"undelined","views":1375,"hits":2863,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Thu, 11 Apr 2024 01:18:28 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-15T03:42:48.969Z"}};
 };
 
 info().then((response) => {
@@ -857,7 +854,7 @@ function updateSpline() {
 const page = Number.parseInt(new URLSearchParams(window.location.search).get('page') || 0);
 // const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
-const numbers = [3, 1];
+const numbers = [3, 2];
 document.getElementById("current-page").innerText = page + 1;
 if (page != 0) {
   document.getElementById("newer").href = `?page=${Math.max(0, page - 1)}`;
