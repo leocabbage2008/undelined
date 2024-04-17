@@ -757,7 +757,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  return {"result":"success","info":{"sitename":"undelined","views":1375,"hits":2863,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Thu, 11 Apr 2024 01:18:28 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-15T03:42:48.969Z"}};
+  return {"result":"success","info":{"sitename":"undelined","views":1394,"hits":2882,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 15 Apr 2024 03:43:21 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-17T02:53:19.753Z"}};
 };
 
 info().then((response) => {

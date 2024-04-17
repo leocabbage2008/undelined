@@ -50,7 +50,7 @@ export default {
       'process.env': d.parsed,
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.html', "!home"],
+      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.*', "!home"],
     }),
   ],
   optimization: {
