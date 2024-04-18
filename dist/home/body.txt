@@ -14,9 +14,9 @@ path 1 > getting jacked:
   - maingain
     - no sugar, AT ALL
       - 10 cuts as punishment :D
-    - more protein and meat, more carbs, aim for around 1800 cals a day
+    - more protein and meat, more carbs, aim for around 2200 cals a day
     - push pull leg variant => upper + forearms/core + lower
-    - EVERYTHING BELOW IS FAILUREx3 unless otherwise specified
+    - EVERYTHING BELOW IS FAILUREx1 unless otherwise specified
     - eat at least one time every three hours, even if it's just a snack
     upper + forearms day:
       - warmup: band stretches + 10 min stairmaster => failure(as hard as you can for 10 minutes)
@@ -26,8 +26,8 @@ path 1 > getting jacked:
       - barbell row 
       - seated row 
       - db shoulder press 
-      - db lateral raises 
-      - tricep cable pushdown 
+      - db lateral raises FAILUREx3
+      - tricep cable pushdown FAILUREx3
       - bicep curl 
       - rear delt flys 
       - forearm shit failure x failure (ayyy)
@@ -38,7 +38,7 @@ path 1 > getting jacked:
       - rdl 
       - leg extensions 
       - hamstring curls
-      - calve press 
+      - calve press FAILUREx3
       - seated calf raises barbell
       - cooldown: abductor/adductor
   - always shower before 1 hour after workout or else you risk breakout

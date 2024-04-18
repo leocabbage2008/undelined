@@ -146,6 +146,29 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
 #current-page {
   color: white;
 }
+
+.image {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+.post-image-href-wrapper {
+  display: block;
+  width: 200px;
+}
+
+.post-image {
+  border: 10px ridge #dbb807;
+  display: block;
+  width: 180px;
+}
+
+.caption {
+  text-align: center;
+  font-size: 10px;
+}
 `, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -193,7 +216,7 @@ body {
   background-attachment: fixed;
 }
 a {
-  color: rgb(220, 20, 60) !important;
+  color: rgb(220, 20, 60);
   text-decoration: inherit;
   cursor: none;
 }
@@ -203,6 +226,12 @@ a:hover {
 
 pre {
   margin: 0;
+}
+
+hr {
+  margin: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 `, ""]);
 // Exports
@@ -757,7 +786,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  return {"result":"success","info":{"sitename":"undelined","views":1394,"hits":2882,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 15 Apr 2024 03:43:21 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-17T02:53:19.753Z"}};
+  return {"result":"success","info":{"sitename":"undelined","views":1411,"hits":2901,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 17 Apr 2024 02:53:53 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-18T01:42:31.484Z"}};
 };
 
 info().then((response) => {
@@ -817,6 +846,19 @@ document.addEventListener(
     // Add new point to the beginning at current mouse position with timestamp
     if (inWindow) {
       trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+      const elementsUnderPoint = document.querySelectorAll(':hover');
+      const circle = document.getElementById("circle");
+      for (let i = 0; i < elementsUnderPoint.length; i++) {
+        const elementUnderPoint = elementsUnderPoint[i];
+        if (elementUnderPoint.tagName == 'A') {
+          circle.setAttribute('fill', 'red');
+          circle.setAttribute('stroke', 'red');
+          break;
+        } else {
+          circle.setAttribute('fill', 'pink');
+          circle.setAttribute('stroke', 'pink');
+        }
+      }
       document.getElementById('circle').setAttribute('cx', e.clientX);
       document.getElementById('circle').setAttribute('cy', e.clientY);
       updateSpline();
@@ -851,16 +893,29 @@ function updateSpline() {
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-const page = Number.parseInt(new URLSearchParams(window.location.search).get('page') || 0);
+const page = Number.parseInt(
+  new URLSearchParams(window.location.search).get('page') || 0
+);
 // const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
-const numbers = [3, 2];
-document.getElementById("current-page").innerText = page + 1;
+const numbers = [3, 2, 2];
+document.getElementById('current-page').innerText = page + 1;
 if (page != 0) {
-  document.getElementById("newer").href = `?page=${Math.max(0, page - 1)}`;
+  document.getElementById('newer').href = `?page=${Math.max(0, page - 1)}`;
+} else {
+  document.getElementById('newer').style.color = '#9c0c18';
+  document.getElementById('newer').style.cursor = 'not-allowed';
+  document.getElementById('newer').disabled = true;
 }
 if (page != numbers.length - 1) {
-  document.getElementById("older").href = `?page=${Math.min(numbers.length, page + 1)}`;
+  document.getElementById('older').href = `?page=${Math.min(
+    numbers.length,
+    page + 1
+  )}`;
+} else {
+  document.getElementById('older').style.color = '#9c0c18';
+  document.getElementById('older').style.cursor = 'not-allowed';
+  document.getElementById('older').disabled = true;
 }
 let start = numbers.slice(0, page).reduce((a, b) => a + b, 0);
 for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
@@ -871,10 +926,13 @@ big_hr.className = 'big-hr';
 const glow = document.createElement('div');
 glow.className = 'glow';
 big_hr.appendChild(glow);
-for (let i = start; i < Math.min(start + numbers[page], posts.length) - 1; i++) {
+for (
+  let i = start;
+  i < Math.min(start + numbers[page], posts.length) - 1;
+  i++
+) {
   posts[i].after(big_hr.cloneNode(true));
 }
-
 
 })();
 

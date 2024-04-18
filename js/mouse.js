@@ -45,6 +45,19 @@ document.addEventListener(
     // Add new point to the beginning at current mouse position with timestamp
     if (inWindow) {
       trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+      const elementsUnderPoint = document.querySelectorAll(':hover');
+      const circle = document.getElementById("circle");
+      for (let i = 0; i < elementsUnderPoint.length; i++) {
+        const elementUnderPoint = elementsUnderPoint[i];
+        if (elementUnderPoint.tagName == 'A') {
+          circle.setAttribute('fill', 'red');
+          circle.setAttribute('stroke', 'red');
+          break;
+        } else {
+          circle.setAttribute('fill', 'pink');
+          circle.setAttribute('stroke', 'pink');
+        }
+      }
       document.getElementById('circle').setAttribute('cx', e.clientX);
       document.getElementById('circle').setAttribute('cy', e.clientY);
       updateSpline();

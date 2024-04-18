@@ -122,3 +122,26 @@
 #current-page {
   color: white;
 }
+
+.image {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+.post-image-href-wrapper {
+  display: block;
+  width: 200px;
+}
+
+.post-image {
+  border: 10px ridge #dbb807;
+  display: block;
+  width: 180px;
+}
+
+.caption {
+  text-align: center;
+  font-size: 10px;
+}

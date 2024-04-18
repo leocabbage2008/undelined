@@ -18,7 +18,7 @@ body {
   background-attachment: fixed;
 }
 a {
-  color: rgb(220, 20, 60) !important;
+  color: rgb(220, 20, 60);
   text-decoration: inherit;
   cursor: none;
 }
@@ -28,4 +28,10 @@ a:hover {
 
 pre {
   margin: 0;
+}
+
+hr {
+  margin: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }

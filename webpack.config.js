@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyAssetsWebpackPlugin from './copy-assets-plugin/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,10 +40,6 @@ export default {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(jpg|png|svg|gif)$/,
-        type: 'asset/resource',
-      },
     ],
   },
   plugins: [
@@ -50,8 +47,9 @@ export default {
       'process.env': d.parsed,
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.*', "!home"],
+      cleanOnceBeforeBuildPatterns: ['**/*', '!dist/assets/*.*', '!home/*.*', "!home"],
     }),
+    new CopyAssetsWebpackPlugin(),
   ],
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
