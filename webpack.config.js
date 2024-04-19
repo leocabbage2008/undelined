@@ -47,7 +47,7 @@ export default {
       'process.env': d.parsed,
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!dist/assets/*.*', '!home/*.*', "!home"],
+      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.html', '!dist/assets/*.*', '!home/*.*', "!home"],
     }),
     new CopyAssetsWebpackPlugin(),
   ],
