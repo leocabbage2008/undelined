@@ -1,8 +1,7 @@
-import { log } from 'console';
 import fs from 'fs';
 
 const sync = (data) => {
-  fs.writeFileSync('.env', `DATA=${data}\n`);
+  fs.writeFileSync('info.json', `${data}`);
 };
 const info = async () => {
   const response = await fetch(

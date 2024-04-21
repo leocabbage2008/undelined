@@ -766,6 +766,12 @@ module.exports = __webpack_require__.p + "assets/sunset.jpg";
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
+
+;// CONCATENATED MODULE: ./info.json
+const info_namespaceObject = /*#__PURE__*/JSON.parse('{"result":"success","info":{"sitename":"undelined","views":1503,"hits":3030,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Fri, 19 Apr 2024 02:38:18 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-21T16:17:53.620Z"}}');
+;// CONCATENATED MODULE: ./js/info.js
+
+
 function syntaxHighlight(json) {
   return json.replace(
     /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
@@ -786,7 +792,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  return {"result":"success","info":{"sitename":"undelined","views":1431,"hits":2931,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Fri, 19 Apr 2024 02:15:13 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-04-19T02:22:01.779Z"}};
+  return info_namespaceObject;
 };
 
 info().then((response) => {

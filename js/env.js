@@ -1,1 +1,2 @@
-document.getElementById("env").innerHTML = JSON.stringify(process.env);
+import env from '../info.json'
+document.getElementById("env").innerHTML = JSON.stringify(env);

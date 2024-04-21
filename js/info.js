@@ -1,3 +1,5 @@
+import env from '../info.json'
+
 function syntaxHighlight(json) {
   return json.replace(
     /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
@@ -18,7 +20,7 @@ function syntaxHighlight(json) {
 }
 
 const info = async () => {
-  return process.env.DATA;
+  return env;
 };
 
 info().then((response) => {
