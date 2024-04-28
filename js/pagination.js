@@ -1,7 +1,7 @@
+import dates from '../dates.json';
 const page = Number.parseInt(
   new URLSearchParams(window.location.search).get('page') || 0
 );
-// const timeStamps=
 const posts = Array.from(document.getElementsByClassName('post'));
 const numbers = [3, 2, 2];
 document.getElementById('current-page').innerText = page + 1;
@@ -24,8 +24,36 @@ if (page != numbers.length - 1) {
 }
 let start = numbers.slice(0, page).reduce((a, b) => a + b, 0);
 for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
-  posts[i].style.display = 'block';
+  const post = posts[i];
+  const dateItem = dates[post.id] || { "nonexistent": true };
+  post.style.display = 'block';
+  const datetime = document.createElement('div');
+  datetime.className = 'date-time';
+  const date = document.createElement('span');
+  const time = document.createElement('span');
+  date.className = 'date';
+  time.className = 'time';
+  if (dateItem["nonexistent"]) {
+    post.getElementsByClassName('title')[0].innerText = `u forgot an entire object lawl, the id is ${post.id}`
+    date.innerText = "it's not here";
+    time.innerText = "(he's really stupid sorry)"
+  } else {
+    if (typeof dateItem["title"] == 'string' && (post.getElementsByClassName("post-title").length == 0 || post.getElementsByClassName("post-title")[0].innerText == "")) {
+      try { post.getElementsByClassName("post-title")[0].remove(); }
+      catch { console.log("random error you don't have to worry about"); }
+      const postTitle = document.createElement('div')
+      postTitle.className = 'post-title'
+      postTitle.innerText = dateItem['title']
+      post.getElementsByClassName('title')[0].appendChild(postTitle);
+    }
+    const datePosted = typeof dateItem == 'string' ? new Date(dateItem) : typeof dateItem["date"] == 'string' ? new Date(dateItem["date"]) : null;
+    date.innerText = datePosted ? datePosted.toLocaleDateString() : 'remind webmaster to add a date!';
+    time.innerText = datePosted ? datePosted.toLocaleTimeString() : "(he's stupid sorry)"
+  }
+  datetime.append(date, time);
+  post.getElementsByClassName('title')[0].appendChild(datetime);
 }
+
 const big_hr = document.createElement('div');
 big_hr.className = 'big-hr';
 const glow = document.createElement('div');
