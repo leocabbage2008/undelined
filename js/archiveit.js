@@ -1,3 +1,4 @@
+import { log } from 'console';
 import fs from 'fs';
 
 const sync = (data) => {
@@ -17,3 +18,4 @@ try {
 } catch {
   console.log("no connection");
 }
+fs.cp("/Volumes/scyzku", "./music", { recursive: true }, () => { console.log("sd card successfully copied"); })

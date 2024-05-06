@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "node ./js/archiveit.js && webpack --mode=production"
+    "build": "webpack --mode=production",
+    "job": "node ./js/archiveit.js && python3 cleanmusic.py"
   },
   "author": "",
   "license": "ISC",
