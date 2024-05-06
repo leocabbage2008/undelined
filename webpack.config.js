@@ -17,9 +17,9 @@ const entry = {
   'bundle.js': [
     path.resolve(__dirname, 'js/info.js'),
     path.resolve(__dirname, 'js/mouse.js'),
-    path.resolve(__dirname, 'js/pagination.js'),
     path.resolve(__dirname, 'js/index.js'),
   ],
+  'pagination.js': path.resolve(__dirname, 'js/pagination.js'),
   'env.js': path.resolve(__dirname, 'js/env.js'),
   'replacer.js': path.resolve(__dirname, 'js/replacer.js'),
 };

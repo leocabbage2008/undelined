@@ -37,7 +37,7 @@
 #main {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
-  align-content: space-around;
+  /* align-content: space-around; */
   padding: 60px 50px 100px 90px;
   column-gap: 15px;
   width: calc(100% - 140px);
