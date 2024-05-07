@@ -1,0 +1,7 @@
+added the changelog - 5/6/24
+forgot cors didn't exist again - 4/18/24
+reinvented the wheel with copy webpack plugin because i'm using ecmascript like a NERD! - 4/16/24
+finished up pagination - 4/1/24
+finished polyline cursor trail stuff(used ai) - 3/23/24
+added webpack to website, did hr - 3/18/24
+discovered that neocities didn't ALLOW CROSS SITE CORS SCRIPTING SO I HAVE TO DO GOOFY SHIT WITH WEBPACK(i'm poor) - 2/2/24
