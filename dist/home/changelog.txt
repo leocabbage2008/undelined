@@ -1,4 +1,5 @@
 added the changelog - 5/6/24
+added timestamps - 4/28/24
 forgot cors didn't exist again - 4/18/24
 reinvented the wheel with copy webpack plugin because i'm using ecmascript like a NERD! - 4/16/24
 finished up pagination - 4/1/24
