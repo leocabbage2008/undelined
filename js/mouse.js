@@ -1,12 +1,4 @@
 let trail = [];
-let inWindow = false;
-
-document.addEventListener('mouseleave', () => {
-  inWindow = false;
-});
-document.addEventListener('mouseenter', () => {
-  inWindow = true;
-});
 
 const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
   const t2 = t * t;
@@ -41,25 +33,24 @@ setInterval(() => {
 
 const f = (e) => {
   // Add new point to the beginning at current mouse position with timestamp
-  if (inWindow) {
-    trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
-    const elementsUnderPoint = document.querySelectorAll(':hover');
-    const circle = document.getElementById('circle');
-    for (let i = 0; i < elementsUnderPoint.length; i++) {
-      const elementUnderPoint = elementsUnderPoint[i];
-      if (elementUnderPoint.tagName == 'A') {
-        circle.setAttribute('fill', 'red');
-        circle.setAttribute('stroke', 'red');
-        break;
-      } else {
-        circle.setAttribute('fill', 'pink');
-        circle.setAttribute('stroke', 'pink');
-      }
+  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+  const elementsUnderPoint = document.querySelectorAll(':hover');
+  const circle = document.getElementById('circle');
+  for (let i = 0; i < elementsUnderPoint.length; i++) {
+    const elementUnderPoint = elementsUnderPoint[i];
+    if (elementUnderPoint.tagName == 'A') {
+      circle.setAttribute('fill', 'red');
+      circle.setAttribute('stroke', 'red');
+      break;
+    } else {
+      circle.setAttribute('fill', 'pink');
+      circle.setAttribute('stroke', 'pink');
     }
-    circle.setAttribute('cx', e.clientX);
-    circle.setAttribute('cy', e.clientY);
-    updateSpline();
   }
+  circle.setAttribute('cx', e.clientX);
+  circle.setAttribute('cy', e.clientY);
+  updateSpline();
+
 };
 
 document.addEventListener('mouseenter', (e) => {

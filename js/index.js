@@ -6,7 +6,7 @@ const lowl = () => {
   }
 }
 window.onresize = () => {
-  lowl();
+  // lowl();
 }
 window.mobileCheck = function () {
   let check = false;

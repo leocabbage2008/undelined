@@ -784,7 +784,7 @@ var __webpack_exports__ = {};
 (() => {
 
 ;// CONCATENATED MODULE: ./info.json
-const info_namespaceObject = /*#__PURE__*/JSON.parse('{"result":"success","info":{"sitename":"undelined","views":1739,"hits":3439,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 06 May 2024 00:11:18 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-05-07T03:15:12.267Z"}}');
+const info_namespaceObject = /*#__PURE__*/JSON.parse('{"result":"success","info":{"sitename":"undelined","views":1839,"hits":3623,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 06 May 2024 00:11:18 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-05-11T03:15:26.828Z"}}');
 ;// CONCATENATED MODULE: ./js/info.js
 
 
@@ -822,14 +822,6 @@ info().then((response) => {
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
 let trail = [];
-let inWindow = false;
-
-document.addEventListener('mouseleave', () => {
-  inWindow = false;
-});
-document.addEventListener('mouseenter', () => {
-  inWindow = true;
-});
 
 const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
   const t2 = t * t;
@@ -864,25 +856,24 @@ setInterval(() => {
 
 const f = (e) => {
   // Add new point to the beginning at current mouse position with timestamp
-  if (inWindow) {
-    trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
-    const elementsUnderPoint = document.querySelectorAll(':hover');
-    const circle = document.getElementById('circle');
-    for (let i = 0; i < elementsUnderPoint.length; i++) {
-      const elementUnderPoint = elementsUnderPoint[i];
-      if (elementUnderPoint.tagName == 'A') {
-        circle.setAttribute('fill', 'red');
-        circle.setAttribute('stroke', 'red');
-        break;
-      } else {
-        circle.setAttribute('fill', 'pink');
-        circle.setAttribute('stroke', 'pink');
-      }
+  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+  const elementsUnderPoint = document.querySelectorAll(':hover');
+  const circle = document.getElementById('circle');
+  for (let i = 0; i < elementsUnderPoint.length; i++) {
+    const elementUnderPoint = elementsUnderPoint[i];
+    if (elementUnderPoint.tagName == 'A') {
+      circle.setAttribute('fill', 'red');
+      circle.setAttribute('stroke', 'red');
+      break;
+    } else {
+      circle.setAttribute('fill', 'pink');
+      circle.setAttribute('stroke', 'pink');
     }
-    circle.setAttribute('cx', e.clientX);
-    circle.setAttribute('cy', e.clientY);
-    updateSpline();
   }
+  circle.setAttribute('cx', e.clientX);
+  circle.setAttribute('cy', e.clientY);
+  updateSpline();
+
 };
 
 document.addEventListener('mouseenter', (e) => {
@@ -1008,7 +999,7 @@ const lowl = () => {
   }
 }
 window.onresize = () => {
-  lowl();
+  // lowl();
 }
 window.mobileCheck = function () {
   let check = false;
