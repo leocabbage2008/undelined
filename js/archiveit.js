@@ -17,4 +17,4 @@ try {
 } catch {
   console.log("no connection");
 }
-fs.cp("/Users/coder/Downloads/scyzku", "./music", { recursive: true }, () => { console.log("sd card successfully copied"); })
+// fs.cp("/Users/coder/Downloads/scyzku", "./music", { recursive: true }, () => { console.log("sd card successfully copied"); })
