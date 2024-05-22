@@ -41,9 +41,12 @@ for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
     if (typeof dateItem["title"] == 'string' && (post.getElementsByClassName("title").length == 0 || post.getElementsByClassName("title")[0].innerText == "")) {
       try { post.getElementsByClassName("title")[0].remove(); }
       catch { console.log("random error you don't have to worry about"); }
-      const postTitle = document.createElement('div')
+      const postTitle = document.createElement('div');
+      const actualTitle = document.createElement('p');
       postTitle.className = 'title'
-      postTitle.innerText = dateItem['title']
+      actualTitle.className = 'post-title';
+      actualTitle.innerText = dateItem['title'];
+      postTitle.appendChild(actualTitle);
       post.insertBefore(postTitle, post.firstChild);
     }
     const datePosted = typeof dateItem == 'string' ? new Date(dateItem) : typeof dateItem["date"] == 'string' ? new Date(dateItem["date"]) : null;

@@ -50,10 +50,15 @@
   padding: 10px;
 }
 
+.sidebar-left {
+  width: 250px;
+}
+
 .sidebar-right {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  width: 200px;
 }
 .sidebar-right > div {
   width: 100%;
@@ -153,7 +158,22 @@
 .time {
   font-size: 10px;
 }
-.title {
+.post-title {
+  font-weight: bold;
+  font-size: 40px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+.post-title::after {
+  content: '';
+  height: 20px;
+  width: calc(36vw);
+  background-color: #460064;
+  position: absolute;
+  z-index: -1;
+  margin-top: 20px;
+  margin-left: 20px;
+  opacity: 70%;
 }
