@@ -1,79 +1,12 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+var __webpack_exports__ = {};
 
-/***/ "./js/env.js":
-/*!*******************!*\
-  !*** ./js/env.js ***!
-  \*******************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+;// CONCATENATED MODULE: ./info.json
+const info_namespaceObject = /*#__PURE__*/JSON.parse('{"result":"success","info":{"sitename":"undelined","views":2052,"hits":4020,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 22 May 2024 03:04:34 -0000","domain":null,"tags":["blog","retro"],"timeAccessed":"2024-05-24T02:15:35.442Z"}}');
+;// CONCATENATED MODULE: ./js/env.js
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _info_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../info.json */ \"./info.json\");\n\ndocument.getElementById(\"env\").innerHTML = JSON.stringify(_info_json__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack://blogtemplate/./js/env.js?");
+document.getElementById("env").innerHTML = JSON.stringify(info_namespaceObject);
 
-/***/ }),
-
-/***/ "./info.json":
-/*!*******************!*\
-  !*** ./info.json ***!
-  \*******************/
-/***/ ((module) => {
-
-eval("module.exports = /*#__PURE__*/JSON.parse('{\"result\":\"success\",\"info\":{\"sitename\":\"undelined\",\"views\":2024,\"hits\":3947,\"created_at\":\"Sun, 28 Jan 2024 20:58:03 -0000\",\"last_updated\":\"Sat, 18 May 2024 04:10:02 -0000\",\"domain\":null,\"tags\":[\"blog\",\"retro\"],\"timeAccessed\":\"2024-05-22T02:29:50.583Z\"}}');\n\n//# sourceURL=webpack://blogtemplate/./info.json?");
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./js/env.js");
-/******/ 	
 /******/ })()
 ;
