@@ -14,7 +14,7 @@ body {
   cursor: none;
 }
 #main {
-  background-image: url('../assets/road.jpg');
+  background-image: url('../assets/road.webp');
   background-attachment: fixed;
 }
 a {

@@ -1,3 +1,4 @@
+significantly improved load time by converting to webp and auto generating thumbnails with sharp - 6/14/24
 added backboard to title - 5/21/24
 added the changelog - 5/6/24
 added timestamps - 4/28/24
