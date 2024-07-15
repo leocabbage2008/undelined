@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import AssetsWebpackPlugin from './assets-plugin/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +30,7 @@ export default {
   entry: entry,
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
     assetModuleFilename: 'assets/[name][ext]',
   },
   module: {
@@ -48,15 +47,9 @@ export default {
       'process.env': d.parsed,
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.html', '!home/*.*', "!home"],
+      cleanOnceBeforeBuildPatterns: ['**/*', '!**/*.html', '!home/*.*', "!home", "!robots.txt"],
     }),
     new AssetsWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'dist/index.html'), // Adjust as necessary
-      minify: {
-        collapseWhitespace: true,
-      },
-    }),
   ],
   optimization: {
     minimizer: [new CssMinimizerPlugin()],

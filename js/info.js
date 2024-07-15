@@ -18,13 +18,8 @@ function syntaxHighlight(json) {
     }
   );
 }
-
-const info = async () => {
-  return env;
-};
-
-info().then((response) => {
-  document.getElementById('info').innerHTML = syntaxHighlight(
-    JSON.stringify(response.info, undefined, 4)
-  );
-});
+document.getElementById('info').innerHTML = syntaxHighlight(
+  JSON.stringify(env.info, undefined, 4)
+);
+document.getElementById('run').innerHTML = JSON.stringify(env.run, undefined, 4)
+document.getElementById('commit').innerHTML = JSON.stringify(env.commit, undefined, 4)

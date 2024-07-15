@@ -29,7 +29,7 @@ export default class AssetsWebpackPlugin {
         { recursive: true },
         error
       );
-      fs.mkdir("dist/assets/thumb", error);
+      fs.existsSync("dist/assets/thumb") || fs.mkdir("dist/assets/thumb", error);
       fs.readdir(path.join(assetPath, "images"), (err, files) => {
         error(err)
         for (const i of files) {

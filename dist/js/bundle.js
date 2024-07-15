@@ -200,6 +200,38 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* start of banner stuff */
   margin-left: 20px;
   opacity: 70%;
 }
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(125px);
+  }
+  100% {
+    transform: translateY(-125px);
+  }
+}
+
+.window {
+  height: 100px; /* Adjust height as needed */
+  width: 500px;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-up 15s linear infinite;
+}
+
+.scroll-wrapper * {
+  color: green;
+}
+
+.title-bar {
+  background-color: grey;
+  z-index: 10;
+}
 `, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -803,7 +835,7 @@ var __webpack_exports__ = {};
 (() => {
 
 ;// CONCATENATED MODULE: ./info.json
-const info_namespaceObject = /*#__PURE__*/JSON.parse('{"result":"success","info":{"sitename":"undelined","views":3195,"hits":6808,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Wed, 10 Jul 2024 01:05:04 -0000","domain":null,"tags":["blog","retro","sunset"],"timeAccessed":"2024-07-15T02:49:57.313Z"}}');
+const info_namespaceObject = /*#__PURE__*/JSON.parse('{"info":{"sitename":"undelined","views":3224,"hits":6914,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 15 Jul 2024 03:24:25 -0000","domain":null,"tags":["blog","retro","sunset"],"timeAccessed":"2024-07-15T20:22:29.253Z"},"commit":{"message":"fuck your shitty plugin i\'d rather make one myself","stats":{"total":595,"additions":478,"deletions":117},"filesChanged":16,"time":"2024-07-15T03:24:00Z"},"run":{"start":"2024-07-15T03:24:09Z","length":19,"status":"completed","event":"push","run_number":90}}');
 ;// CONCATENATED MODULE: ./js/info.js
 
 
@@ -825,17 +857,11 @@ function syntaxHighlight(json) {
     }
   );
 }
-
-const info = async () => {
-  return info_namespaceObject;
-};
-
-info().then((response) => {
-  document.getElementById('info').innerHTML = syntaxHighlight(
-    JSON.stringify(response.info, undefined, 4)
-  );
-});
-
+document.getElementById('info').innerHTML = syntaxHighlight(
+  JSON.stringify(info_namespaceObject.info, undefined, 4)
+);
+document.getElementById('run').innerHTML = JSON.stringify(info_namespaceObject.run, undefined, 4)
+document.getElementById('commit').innerHTML = JSON.stringify(info_namespaceObject.commit, undefined, 4)
 })();
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.

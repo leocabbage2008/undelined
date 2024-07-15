@@ -176,3 +176,33 @@
   margin-left: 20px;
   opacity: 70%;
 }
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(125px);
+  }
+  100% {
+    transform: translateY(-125px);
+  }
+}
+
+.window {
+  height: 100px; /* Adjust height as needed */
+  width: 500px;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-up 15s linear infinite;
+}
+
+.scroll-wrapper * {
+  color: green;
+}
+
+.title-bar {
+}
