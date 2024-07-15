@@ -1,4 +1,3 @@
-import { log } from 'console';
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
@@ -8,7 +7,7 @@ const __dirname = path.dirname(__filename);
 const assetPath = path.join(__dirname, '..', 'assets');
 
 const resize = (file) => {
-  sharp(path.join(assetPath, 'images', file)).resize(200).toFile(path.join("dist/assets/thumb", file.split('.')[0] + '200x__.webp'));
+  sharp(path.join(assetPath, 'images', file)).resize(200).toFile(path.join("dist/assets/thumb", file.split('.')[0] + '200x__.jpg'));
 }
 const error = (err) => {
   if (err) {
