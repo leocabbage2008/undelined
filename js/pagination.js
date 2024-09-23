@@ -53,8 +53,11 @@ for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
     date.innerText = datePosted ? datePosted.toLocaleDateString() : 'remind webmaster to add a date!';
     time.innerText = datePosted ? datePosted.toLocaleTimeString() : "(he's stupid sorry)"
   }
+  const id = document.createElement('div');
+  id.innerHTML = `###${post.id}`;
+  post.getElementsByClassName('post-title')[0].appendChild(id);
+
   datetime.append(date, time);
-  console.log(post);
   post.getElementsByClassName('title')[0].appendChild(datetime);
 }
 

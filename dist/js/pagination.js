@@ -3,7 +3,7 @@
 var __webpack_exports__ = {};
 
 ;// CONCATENATED MODULE: ./dates.json
-const dates_namespaceObject = /*#__PURE__*/JSON.parse('{"1":"Tue Apr 02 2024 22:25:50 GMT-0400 (Eastern Daylight Time)","2":"Wed Apr 03 2024 20:37:32 GMT-0400 (Eastern Daylight Time)","3":"Fri Apr 05 2024 20:44:55 GMT-0400 (Eastern Daylight Time)","4":"Wed Apr 10 2024 14:57:56 GMT-0400 (Eastern Daylight Time)","5":"Sun Apr 14 2024 23:40:34 GMT-0400 (Eastern Daylight Time)","6":"Tue Apr 16 2024 21:31:05 GMT-0400 (Eastern Daylight Time)","7":"Wed Apr 17 2024 20:31:42 GMT-0400 (Eastern Daylight Time)","8":{"title":"This is a test title","date":"Sun Apr 28 2024 08:46:22 GMT-0400 (Eastern Daylight Time)"},"9":{"title":"life updates","date":"Fri May 17 2024 23:56:20 GMT-0400 (Eastern Daylight Time)"},"10":{"title":"full of rage","date":"Tue May 21 2024 22:21:39 GMT-0400 (Eastern Daylight Time)"},"11":{"title":"field trip","date":"2024-05-24T02:05:28.685Z"},"12":{"title":"vacation and other plans","date":"Wed Jul 03 2024 09:09:44 GMT-0400 (Eastern Daylight Time)"}}');
+const dates_namespaceObject = /*#__PURE__*/JSON.parse('{"1":"Tue Apr 02 2024 22:25:50 GMT-0400 (Eastern Daylight Time)","2":"Wed Apr 03 2024 20:37:32 GMT-0400 (Eastern Daylight Time)","3":"Fri Apr 05 2024 20:44:55 GMT-0400 (Eastern Daylight Time)","4":"Wed Apr 10 2024 14:57:56 GMT-0400 (Eastern Daylight Time)","5":"Sun Apr 14 2024 23:40:34 GMT-0400 (Eastern Daylight Time)","6":"Tue Apr 16 2024 21:31:05 GMT-0400 (Eastern Daylight Time)","7":"Wed Apr 17 2024 20:31:42 GMT-0400 (Eastern Daylight Time)","8":{"title":"This is a test title","date":"Sun Apr 28 2024 08:46:22 GMT-0400 (Eastern Daylight Time)"},"9":{"title":"life updates","date":"Fri May 17 2024 23:56:20 GMT-0400 (Eastern Daylight Time)"},"10":{"title":"full of rage","date":"Tue May 21 2024 22:21:39 GMT-0400 (Eastern Daylight Time)"},"11":{"title":"field trip","date":"2024-05-24T02:05:28.685Z"},"12":{"title":"vacation and other plans","date":"Wed Jul 03 2024 09:09:44 GMT-0400 (Eastern Daylight Time)"},"13":{"title":"update","date":"Sun Sep 22 2024 21:43:54 GMT-0400 (Eastern Daylight Time)"}}');
 ;// CONCATENATED MODULE: ./js/pagination.js
 
 const page = Number.parseInt(
@@ -60,8 +60,11 @@ for (let i = start; i < Math.min(start + numbers[page], posts.length); i++) {
     date.innerText = datePosted ? datePosted.toLocaleDateString() : 'remind webmaster to add a date!';
     time.innerText = datePosted ? datePosted.toLocaleTimeString() : "(he's stupid sorry)"
   }
+  const id = document.createElement('div');
+  id.innerHTML = `###${post.id}`;
+  post.getElementsByClassName('post-title')[0].appendChild(id);
+
   datetime.append(date, time);
-  console.log(post);
   post.getElementsByClassName('title')[0].appendChild(datetime);
 }
 
