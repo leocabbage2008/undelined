@@ -5,19 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Title</title>
 	<style>
-	body{display:flex;flex-direction:column;align-items:center;}
-	img{height:auto;}
-	video{height:auto;}
+	body{display:flex;flex-direction:column;align-items:center;background:url("assets/images/tabol.webp"); background-size:cover;background-position:center;}
+	img:not(#big){height:auto;border:double 8px black; padding:8px;}
+	video{height:auto; margin:20px;}
+	#big{position:absolute; top:0; left:0; height:100vh; width:100vw;z-index:1; background:black;}
+	span{color:red; font-size:16px; font-weight: 700;}
 	</style>
     </head>
     <body>
+<img id="big" src="assets/images/innuks.gif"/>
 <video controls autoplay></video>
 <span></span>
-<button id="b">x</button>
-<img/> 
+<button id="b">capture</button>
+<img src="assets/images/fry.gif"/> 
     </body>
 <script type="module">
-const stream =          await navigator.mediaDevices.getUserMedia({video: true});
+const stream =          await navigator.mediaDevices.getUserMedia({video: true}).then(e=>[document.getElementById("big").remove(),e][1]);
 const video=	        document.querySelector("video")
 const img=	        document.querySelector("img")
 const b=		document.querySelector("button")
@@ -33,7 +36,7 @@ video.srcObject = stream;
 
 let c=0;
 b.addEventListener("click",async ()=>{
-	if(!c) img.src="spin.gif"
+	if(!c) img.src="assets/images/spin.gif";
 	c++;
 	f.readAsDataURL(await imgcap.takePhoto());
 	console.log(await imgcap.takePhoto());

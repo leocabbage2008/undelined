@@ -784,7 +784,7 @@ module.exports = __webpack_require__.p + "assets/sunset.jpg";
 /******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
 /******/ 		var document = __webpack_require__.g.document;
 /******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
 /******/ 				scriptUrl = document.currentScript.src;
 /******/ 			if (!scriptUrl) {
 /******/ 				var scripts = document.getElementsByTagName("script");
@@ -834,12 +834,12 @@ module.exports = __webpack_require__.p + "assets/sunset.jpg";
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
 
-;// CONCATENATED MODULE: ./info.json
-const info_namespaceObject = /*#__PURE__*/JSON.parse('{"info":{"sitename":"undelined","views":4527,"hits":13593,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 23 Sep 2024 03:01:59 -0000","domain":null,"tags":["blog","retro","sunset"],"timeAccessed":"2024-10-13T19:30:13.666Z"},"commit":{"message":"blog","stats":{"total":1920,"additions":1909,"deletions":11},"filesChanged":9,"time":"2024-09-23T03:00:32Z"},"run":{"start":"2024-09-23T03:01:30Z","length":32,"status":"completed","event":"push","run_number":93}}');
-;// CONCATENATED MODULE: ./js/info.js
+;// ./info.json
+const info_namespaceObject = /*#__PURE__*/JSON.parse('{"info":{"sitename":"undelined","views":5190,"hits":16845,"created_at":"Sun, 28 Jan 2024 20:58:03 -0000","last_updated":"Mon, 23 Sep 2024 03:01:59 -0000","domain":null,"tags":["blog","retro","sunset"],"timeAccessed":"2024-12-04T03:44:23.156Z"},"commit":{"message":"blog","stats":{"total":1920,"additions":1909,"deletions":11},"filesChanged":9,"time":"2024-09-23T03:00:32Z"},"run":{"start":"2024-09-23T03:01:30Z","length":32,"status":"completed","event":"push","run_number":93}}');
+;// ./js/info.js
 
 
 function syntaxHighlight(json) {
@@ -867,7 +867,7 @@ document.getElementById('run').innerHTML = JSON.stringify(info_namespaceObject.r
 document.getElementById('commit').innerHTML = JSON.stringify(info_namespaceObject.commit, undefined, 4)
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
 let trail = [];
 
@@ -955,7 +955,7 @@ function updateSpline() {
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -978,7 +978,7 @@ var styleTagTransform = __webpack_require__(113);
 var styleTagTransform_default = /*#__PURE__*/__webpack_require__.n(styleTagTransform);
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./css/index.css
 var cjs_js_css = __webpack_require__(732);
-;// CONCATENATED MODULE: ./css/index.css
+;// ./css/index.css
 
       
       
@@ -1009,7 +1009,7 @@ var update = injectStylesIntoStyleTag_default()(cjs_js_css/* default */.A, optio
 
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./css/content.css
 var content = __webpack_require__(363);
-;// CONCATENATED MODULE: ./css/content.css
+;// ./css/content.css
 
       
       
@@ -1038,7 +1038,7 @@ var content_update = injectStylesIntoStyleTag_default()(content/* default */.A, 
 
        /* harmony default export */ const css_content = (content/* default */.A && content/* default */.A.locals ? content/* default */.A.locals : undefined);
 
-;// CONCATENATED MODULE: ./js/index.js
+;// ./js/index.js
 
 
 const lowl = () => {
