@@ -1,3 +1,5 @@
+added invert over photo, placeholder text - 12/4/24
+added photo page - 12/3/24
 significantly improved load time by auto generating thumbnails with sharp, changed folder structure, did other improvement stuff - 6/14/24
 added backboard to title - 5/21/24
 added the changelog - 5/6/24

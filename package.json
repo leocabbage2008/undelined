@@ -5,19 +5,19 @@
   "description": "",
   "scripts": {
     "dev": "webpack --mode=development",
-    "build": "ncu --target minor -u && npm i && node ./js/archiveit.js && python3 cleanmusic.py && webpack --mode=production"
+    "build": "ncu -u && npm i && node ./js/archiveit.js && python3 cleanmusic.py && webpack --mode=production"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.11.0",
-    "css-minimizer-webpack-plugin": "^6.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
     "dotenv": "^16.4.7",
     "file-loader": "^6.2.0",
     "npm-check-updates": "^17.1.11",
     "sharp": "^0.33.5",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "webpack": "^5.97.0",
     "webpack-cli": "^5.1.4"
   }

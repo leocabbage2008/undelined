@@ -5,59 +5,6 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="webbed cite" />
     <link rel="shortcut icon" href="https://t0.gstatic.com/faviconV2" />
-    <style>
-      #canvas {
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 999;
-      }
-
-      #canvas * {
-        pointer-events: none;
-      }
-      .title .hr {
-        height: 3px;
-        width: 200px;
-        background: #ffd6ff;
-      }
-
-      @keyframes anime {
-        from {
-          background-position: 0;
-        }
-        to {
-          background-position: 200px;
-        }
-      }
-
-      @keyframes big-anime {
-        from {
-          background-position: 0;
-        }
-        to {
-          background-position: 400px;
-        }
-      }
-      .big-hr .glow {
-        text-align: center;
-        width: 400px;
-        height: 5px;
-        background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
-        margin: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        animation: big-anime 4s linear infinite;
-      }
-      .hr .glow {
-        width: 200px;
-        height: 3px;
-        background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffffff);
-        animation: anime 2s linear infinite;
-      }
-    </style>
   </head>
   <body>
     <svg id="canvas">
@@ -67,13 +14,13 @@
         stroke-width="10"
         fill="rgba(200, 166, 237,.7)"
       ></polyline>
-      <circle id="circle" r="5"></circle>
+      <circle id="circle" r="10" opacity="0.5"></circle>
     </svg>
     <div id="banner">
       <pre id="info"></pre>
       <h1 id="title">undelined</h1>
     </div>
-    <div class="window">
+    <!-- <div class="window">
       <div class="title-bar">
         <div class="title"></div>
         <span class="c">x</span>
@@ -83,7 +30,7 @@
         <pre>------------</pre>
         <pre id="commit"></pre>
       </div>
-    </div>
+    </div> -->
     <div class="colorbar"></div>
     <div id="main">
       <ul class="sidebar-left">
@@ -99,7 +46,8 @@
         </li>
         <hr />
         <h1 style="font-size: 20px">
-          please don't look here, this is stuff for the webmaster! :D
+          please don't look here, this is stuff for the webmaster(you want it to
+          be a surprise don't you?)! :D
         </h1>
         <ul class="edits">
           <li>do windows window</li>
@@ -140,6 +88,69 @@
       </ul>
       <div class="content">
         <div class="pagination">
+          <div class="post" id="14">
+            <div class="title"></div>
+            <div class="post-content">
+              So... it's been an extremely long time since I've worked on this
+              website. I've been learning a lot of physics and schools just been
+              very busy. I've been reading a book called Seeing Like A State
+              which talks about authoritarian high modernism which is the
+              government control of everything in order to optimize work. I'll
+              hotlink the book below so you can read it if you want.
+              <div class="image">
+                <a
+                  class="post-image-href-wrapper"
+                  href="https://www.bookfinder.com/search/?isbn=0300078153&submitBtn=Search&mode=isbn&st=sr&ac=qr"
+                  aria-label="BookFinder"
+                >
+                  <img
+                    class="post-image"
+                    src="../assets/permathumb/sls200x__.jpg"
+                    alt=""
+                    width="200"
+                  />
+                </a>
+                <p class="caption">
+                  Seeing Like A State from Yale University Press(BookFinder)
+                </p>
+              </div>
+              So... After I put that image right up there I'm writing this after
+              6 hours of coding. This website actually takes a lot of time,
+              especially that cursor. Try moving it around the book and it
+              should turn red. Clicking on it also confirms if you want to leave
+              because WHO WOULD WANT TO LEAVE THIS WEBSITE???? AM I
+              RIGHT????!!!! Anyways it also just hit midnight and I have school
+              tomorrow.
+              <hr />
+              But I'm not going to do that, I'll tell you a little more about
+              what I did today. You can check devtools for my code but I also
+              changed the little glowy bars at the bottom of each post to change
+              with time. So the combination is practically unique! Kinda cool
+              right??? I just saw the title of this post so I'm going to talk
+              about some of that as well. Stay tuned!
+              <hr />
+              I don't know why I said stay tuned because I'm not going anywhere.
+              Anyways I went diving at playa del carmen and they were some
+              really cool cenotes there. I think my favorite was the Casa cenote
+              since it was my first and also very pretty. I don't think I have
+              the skills to describe it in words but here we go!
+              <hr />
+              Stepping into the water, there's little yellow and orange leaves
+              floating on the surface. I put my fins on a rock just right next
+              to where I descend. My wetsuit clings to my body like clingwrap
+              but it also keeps me warm. I take the step into the water and
+              float up, hearing a hiss from my BCD as the water forces some air
+              out. Our divemaster signals us to go down and I pull my shoulder
+              release valve, struggling for a bit to find it. The first thing I
+              immediately notice is how deep it seemed, only 5-6m, the rocks
+              seemed everywhere and the water was so clear and piercing. The sun
+              shimmered across the water, making it seem like a pool and at the
+              same time, the surface tension of the lilies produced little
+              cardiods on the bottom. The sunlight pierced through the water so
+              clearly that I could see where shadows began and ended. The
+              mangroves added a very natural feeling to it all as well.
+            </div>
+          </div>
           <div class="post" id="13">
             <div class="post-content">
               Hey, sorry I've been gone for a while. I've been trying out a few
@@ -597,7 +608,7 @@ a pre
           <a href="" id="older">&gt&gt</a>
         </div>
       </div>
-      <ul class="sidebar-right">
+      <div class="sidebar-right">
         <iframe
           title="chatbox"
           src="https://www3.cbox.ws/box/?boxid=3536349&boxtag=8W87xI"
@@ -610,34 +621,17 @@ a pre
           marginwidth="0"
           scrolling="auto"
         ></iframe>
-        <ul class="updates">
-          <span>updates:</span>
-          <ul>
-            <li>added <a href="changelog.txt">the changelog</a></li>
-            <li>
-              added cursor color coding, red means that something goes to a
-              link, pink is the default color
-            </li>
-            <li>
-              <a href="#">Did webpack stuff!</a>
-            </li>
-            <li>
-              <a href="#">added cast</a>
-            </li>
-            <li>
-              <a href="#">added lowl page</a>
-            </li>
-            <li>
-              <a href="#">wrote shit</a>
-            </li>
-          </ul>
-        </ul>
+        <hr/ >
+        <a href="changelog.txt">The Changelog</a>
         <hr />
         <div class="recent">
-          <span>recent things:</span>
+          <span>Recently Interesting :</span>
           <ul>
             <li>
-              <a href="#">some link</a>
+              <a
+                href="https://apnews.com/article/south-korea-martial-law-north-korea-emergency-b310df4fece42c27051f58b8951f346f"
+                >President of South Korea declares martial law</a
+              >
             </li>
           </ul>
         </div>
@@ -655,7 +649,7 @@ a pre
             </li>
           </ul>
         </div>
-      </ul>
+      </div>
     </div>
     <script src="../js/bundle.js"></script>
     <script src="../js/pagination.js"></script>

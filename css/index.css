@@ -13,6 +13,37 @@ body {
 body {
   cursor: none;
 }
+#canvas {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+
+#canvas * {
+  pointer-events: none;
+}
+
+@keyframes big-anime {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 400px;
+  }
+}
+.big-hr .glow {
+  text-align: center;
+  width: 400px;
+  height: 5px;
+  background: linear-gradient(0.25turn, rgba(0, 0, 0, 0.1), #ffa0ff);
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: big-anime 4s linear infinite;
+}
 #main {
   background-image: url('../assets/road.jpg');
   background-attachment: fixed;

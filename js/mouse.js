@@ -1,4 +1,5 @@
 let trail = [];
+const circle = document.getElementById('circle');
 
 const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
   const t2 = t * t;
@@ -17,49 +18,6 @@ const centripetalCatmullRomSpline = (P0, P1, P2, P3, t) => {
       (t3 - t2) * P3[1]);
   return [Qx, Qy];
 };
-
-setInterval(() => {
-  if (trail.length > 0) {
-    const currentTime = Date.now();
-    while (
-      trail.length > 0 &&
-      currentTime - trail[trail.length - 1].timestamp > 300
-    ) {
-      trail.pop();
-    }
-    updateSpline();
-  }
-}, 1);
-
-const f = (e) => {
-  // Add new point to the beginning at current mouse position with timestamp
-  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
-  const elementsUnderPoint = document.querySelectorAll(':hover');
-  const circle = document.getElementById('circle');
-  for (let i = 0; i < elementsUnderPoint.length; i++) {
-    const elementUnderPoint = elementsUnderPoint[i];
-    if (elementUnderPoint.tagName == 'A') {
-      circle.setAttribute('fill', 'red');
-      circle.setAttribute('stroke', 'red');
-      break;
-    } else {
-      circle.setAttribute('fill', 'pink');
-      circle.setAttribute('stroke', 'pink');
-    }
-  }
-  circle.setAttribute('cx', e.clientX);
-  circle.setAttribute('cy', e.clientY);
-  updateSpline();
-
-};
-
-document.addEventListener('mouseenter', (e) => {
-  const circle = document.getElementById('circle');
-  circle.setAttribute('cx', e.clientX);
-  circle.setAttribute('cy', e.clientY);
-}, false);
-
-document.addEventListener('mousemove', f, false);
 function updateSpline() {
   // Generate spline curve
   const splinePoints = [];
@@ -81,3 +39,79 @@ function updateSpline() {
     .getElementById('spline')
     .setAttribute('points', splinePoints.join(' '));
 }
+
+setInterval(() => {
+  if (trail.length > 0) {
+    const currentTime = Date.now();
+    while (
+      trail.length > 0 &&
+      currentTime - trail[trail.length - 1].timestamp > 300
+    ) {
+      trail.pop();
+    }
+    updateSpline();
+  }
+}, 1);
+// penguin flipper
+function plipper(e, dict) {
+  for (const i of Object.keys(dict)) e.style[i] = dict[i]
+  e.addEventListener('mouseleave', (x) => {
+    for (const i of Object.keys(dict)) e.style[i] = '';
+  });
+}
+// crayon
+function crayon(color) {
+  //george and his yellow crayon
+  circle.style.fill = circle.style.stroke = color;
+}
+const f = (e) => {
+  // Add new point to the beginning at current mouse position with timestamp
+  trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
+  const eleposs = document.querySelectorAll(':hover');
+  for (let i = 0; i < eleposs.length; i++) {
+    const ele = eleposs[i];
+    switch (ele.tagName) {
+      case 'A':
+        console.log(new Date().valueOf(), ele.classList.contains("post-image-href-wrapper"))
+        switch (ele.classList.contains('post-image-href-wrapper')) {
+          case true:
+            crayon('red');
+            plipper(ele.querySelector('img'), {
+              filter: 'invert(100%)'
+            });
+            break;
+          case false:
+            crayon('lightskyblue');
+            ele.onclick = (t) => {
+              t.stopPropagation();
+              alert(
+                'CITIZEN YOU ARE ENTERING AREAS AT RISK OF DATA LOSS PLEASE CONFIRM ENTRANCE'
+              );
+              confirm(`PLEASE CHECK THE SAUCE CAN: ${ele.href}`) &&
+                window.open(ele.href);
+              return false;
+            };
+            break;
+        }
+        break;
+      case 'DIV':
+        crayon('pink');
+        break;
+    }
+  }
+  circle.setAttribute('cx', e.clientX);
+  circle.setAttribute('cy', e.clientY);
+  updateSpline();
+};
+
+document.addEventListener(
+  'mouseenter',
+  (e) => {
+    const circle = document.getElementById('circle');
+    circle.setAttribute('cx', e.clientX);
+    circle.setAttribute('cy', e.clientY);
+  },
+  false
+);
+
+document.addEventListener('mousemove', f, false);

@@ -22,9 +22,9 @@
     </body>
 <script type="module">
 const stream =          await navigator.mediaDevices.getUserMedia({video: true}).then(e=>[document.getElementById("big").remove(),e][1]);
-const video=	        document.querySelector("video")
-const img=	        document.querySelector("img")
-const b=		document.querySelector("button")
+const video=	          document.querySelector("video")
+const img=	            document.querySelector("img")
+const b=		            document.querySelector("button")
 const span=             document.querySelector("span")
 const track=            stream.getVideoTracks()[0];
 const imgcap=           new ImageCapture(track);

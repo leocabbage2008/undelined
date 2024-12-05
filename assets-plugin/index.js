@@ -33,11 +33,7 @@ export default class AssetsWebpackPlugin {
       fs.readdir(path.join(assetPath, "images"), (err, files) => {
         error(err)
         for (const i of files) {
-          if (i == '.DS_Store' || i.indexOf('.') == -1) {
-            continue
-          } else {
-            resize(i)
-          }
+          !i.includes("gif") && resize(i);
         }
       })
       console.log('YOUR CLOUDS ARE FINISHED FLOATING');
