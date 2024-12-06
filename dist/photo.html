@@ -1,54 +1,87 @@
 <!-- option for takephoto or getframe(checkbox) and then flip image or not(checkbox) and then whether to upload to imgbb or pomf(checklist) -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Title</title>
-	<style>
-	body{display:flex;flex-direction:column;align-items:center;background:url("assets/images/tabol.webp"); background-size:cover;background-position:center;}
-	img:not(#big){height:auto;border:double 8px black; padding:8px;}
-	video{height:auto; margin:20px;}
-	#big{position:absolute; top:0; left:0; height:100vh; width:100vw;z-index:1; background:black;}
-	span{color:red; font-size:16px; font-weight: 700;}
-	</style>
-    </head>
-    <body>
-<img id="big" src="assets/images/innuks.gif"/>
-<video controls autoplay></video>
-<span></span>
-<button id="b">capture</button>
-<img src="assets/images/fry.gif"/> 
-    </body>
-<script type="module">
-const stream =          await navigator.mediaDevices.getUserMedia({video: true}).then(e=>[document.getElementById("big").remove(),e][1]);
-const video=	          document.querySelector("video")
-const img=	            document.querySelector("img")
-const b=		            document.querySelector("button")
-const span=             document.querySelector("span")
-const track=            stream.getVideoTracks()[0];
-const imgcap=           new ImageCapture(track);
-const f=                new FileReader();
-const {width, height} = stream.getVideoTracks()[0].getSettings();
-video.style.height=img.width=width;
-video.style.width=img.height=height;
-span.innerText=`hxw=${height}x${width}`
-video.srcObject = stream;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: url('assets/images/tabol.webp');
+        background-size: cover;
+        background-position: center;
+      }
+      img:not(#big) {
+        height: auto;
+        border: double 8px black;
+        padding: 8px;
+      }
+      video {
+        height: auto;
+        margin: 20px;
+      }
+      #big {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        background: black;
+      }
+      span {
+        color: red;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="big" src="assets/images/innuks.gif" />
+    <video controls autoplay></video>
+    <span></span>
+    <button id="b">capture</button>
+    <img src="assets/images/fry.gif" />
+  </body>
+  <script type="module">
+    const stream = await navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then((e) => [document.getElementById('big').remove(), e][1]);
+    const video = document.querySelector('video');
+    const img = document.querySelector('img');
+    const b = document.querySelector('button');
+    const span = document.querySelector('span');
+    const track = stream.getVideoTracks()[0];
+    const imgcap = new ImageCapture(track);
+    const f = new FileReader();
+    const { width, height } = stream.getVideoTracks()[0].getSettings();
+    video.style.height = img.width = width;
+    video.style.width = img.height = height;
+    span.innerText = `hxw=${height}x${width}`;
+    video.srcObject = stream;
 
-let c=0;
-b.addEventListener("click",async ()=>{
-	if(!c) img.src="assets/images/spin.gif";
-	c++;
-	f.readAsDataURL(await imgcap.takePhoto());
-	console.log(await imgcap.takePhoto());
-	img.src=await f.result;
-	const form = new FormData();
-	form.append('image', img.src.split("base64,")[1]);
+    let c = 0;
+    b.addEventListener('click', async () => {
+      if (!c) img.src = 'assets/images/spin.gif';
+      c++;
+      f.readAsDataURL(await imgcap.takePhoto());
+      console.log(await imgcap.takePhoto());
+      img.src = await f.result;
+      const form = new FormData();
+      form.append('image', img.src.split('base64,')[1]);
 
-	fetch('https://api.imgbb.com/1/upload?key=6a7bd40291e1f49c241e2a9a306e27bf', {
-	  method: 'POST',
-	  body: form
-	}).then(res=>res.json()).then(j=>window.open(j.data.url));
-});
-</script>
+      fetch(
+        'https://api.imgbb.com/1/upload?key=6a7bd40291e1f49c241e2a9a306e27bf',
+        {
+          method: 'POST',
+          body: form,
+        }
+      )
+        .then((res) => res.json())
+        .then((j) => window.open(j.data.url));
+    });
+  </script>
 </html>

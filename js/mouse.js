@@ -68,6 +68,7 @@ const f = (e) => {
   // Add new point to the beginning at current mouse position with timestamp
   trail.unshift({ point: [e.clientX, e.clientY], timestamp: Date.now() });
   const eleposs = document.querySelectorAll(':hover');
+  crayon('pink');
   for (let i = 0; i < eleposs.length; i++) {
     const ele = eleposs[i];
     switch (ele.tagName) {
@@ -93,9 +94,6 @@ const f = (e) => {
             };
             break;
         }
-        break;
-      case 'DIV':
-        crayon('pink');
         break;
     }
   }
